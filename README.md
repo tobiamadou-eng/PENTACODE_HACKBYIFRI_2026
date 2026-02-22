@@ -1,8 +1,10 @@
 📄 CAHIER DES CHARGES
 HACKBYIFRI 2026
 Thème : Intégration efficace du numérique dans l'apprentissage
+
 1️⃣ Nom de l'équipe
 PENTACODE IFRI
+
 2️⃣ Présentation des membres
 
 Membre 1 (Chef de groupe)
@@ -69,6 +71,7 @@ Catégories touchées
 Étudiants en Master
 Doctorants
 Étudiants en période d'examen
+
 4️⃣ Description de la solution
 Nom de la solution SMARTLEARN Description
 SMARTLEARN est une application web intelligente qui transforme un chapitre de cours en un assistant d'apprentissage interactif.
@@ -93,6 +96,7 @@ Deux modes :
 Génération automatique de planification selon performance
 Intégration d'un mode Focus chronométré
 5️⃣ Exigences fonctionnelles
+
 SMARTLEARN devra permettre :
 • Sélection du niveau académique
 • Sélection de la matière
@@ -106,6 +110,7 @@ SMARTLEARN devra permettre :
 • Mode Focus (session 25 minutes avec minuterie)
 • Suivi simple de progression
 6️⃣ Technologies utilisées
+
 Langages
 • PHP (backend & frontend) – simplicité et rapidité de développement
 • HTML / CSS / JavaScript – interface web légère et efficace
@@ -116,6 +121,7 @@ Base de données
 IA
 • API OpenAI – génération pédagogique intelligente, quiz et explications Justification :
 Ces technologies permettent un prototype fonctionnel rapide, stable et démontrable.
+
 7️⃣ Modèle économique (optionnel)
 SMARTLEARN pourrait évoluer vers :
 • Version gratuite avec fonctionnalités de base
@@ -125,6 +131,7 @@ Analyse avancée(OCR) Historique détaillé Statistiques de progression Public p
 Écoles privées Centres de formation Stratégie :
 Partenariats universitaires
 Abonnement étudiant mensuel faible coût
+
 8️⃣ Perspectives et évolutions futures
 Fonctionnalités futures possibles :
 • Upload direct de PDF
@@ -132,6 +139,7 @@ Fonctionnalités futures possibles :
 • Mode collaboratif (groupes d'étude)
 • Analyse multi-chapitres
 • Recommandation intelligente basée sur historique • Application mobile
+
 9️⃣ Architecture et pratique technique
 Architecture
 Frontend (HTML/CSS/JS)
