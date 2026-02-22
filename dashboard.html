@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - SMARTLEARN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-body">
+
+<div class="dashboard-container">
+
+    <h1>Bienvenue sur SMARTLEARN</h1>
+    <p>Optimisez votre réussite académique.</p>
+
+    <!-- Sélection niveau -->
+    <div id="levelSection">
+
+    <div class="level-selection">
+        <h2>Sélectionnez votre niveau d'étude</h2>
+
+        <select id="studyLevel">
+            <option value="">-- Choisir --</option>
+            <option value="L1">Licence 1</option>
+            <option value="L2">Licence 2</option>
+            <option value="L3">Licence 3</option>
+            <option value="M1">Master 1</option>
+            <option value="M2">Master 2</option>
+            <option value="Doctorat">Doctorat</option>
+        </select>
+
+        <br><br>
+        <button class="btn-primary" onclick="saveLevel()">Continuer</button>
+    </div>
+
+    <div id="currentLevelDisplay"></div>
+
+</div>
+
+    <!-- Analyse chapitre -->
+    <div class="analyzer-box">
+        <textarea id="chapterInput" placeholder="Collez ici votre chapitre..."></textarea>
+        <button class="btn-primary" onclick="analyzeChapter()">Analyser</button>
+    </div>
+
+    <!-- Résultats -->
+    <div id="resultBox" class="result-box"></div>
+
+    <!-- Performances -->
+    <div id="performanceSection" class="result-box"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

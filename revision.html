@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Révision - SMARTLEARN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-body">
+
+    <div class="dashboard-container">
+        <h1>Révision personnalisée</h1>
+
+        <!-- Contenu dynamique injecté ici -->
+        <div id="revisionContent"></div>
+    </div>
+
+<script>
+
+let revisionData = JSON.parse(localStorage.getItem("revisionData")) || {
+    sessions: 1,
+    duration: 20,
+    wrongAnswers: []
+};
+
+let currentSession = 1;
+let totalScore = 0;
+let totalQuestions = 0;
+
+function startRevision(){
+    showExplanation();
+}
+
+function showExplanation(){
+
+    const errors = revisionData.wrongAnswers || [];
+
+    let explanationContent = "";
+
+    if(errors.length > 0){
+        explanationContent = errors.map(e =>
+            `<p><strong>${e.question}</strong><br>${e.explanation}</p>`
+        ).join("");
+    } else {
+        explanationContent = "<p>Révision générale de consolidation.</p>";
+    }
+
+    document.getElementById("revisionContent").innerHTML = `
+        <div class="quiz-box">
+            <h3>Séance ${currentSession} / ${revisionData.sessions}</h3>
+
+            <h4>Points à retravailler :</h4>
+            ${explanationContent}
+
+            <button class="btn-primary" onclick="startMiniQuiz()">
+                Vérifier ma compréhension
+            </button>
+        </div>
+    `;
+}
+
+function startMiniQuiz(){
+
+    const questions = revisionData.wrongAnswers || [];
+
+    if(questions.length === 0){
+        finishRevision();
+        return;
+    }
+
+    let currentQ = 0;
+    let sessionScore = 0;
+
+    let remainingTime = revisionData.duration * 60;
+    let timerInterval;
+
+    function startTimer(){
+        timerInterval = setInterval(() => {
+
+            const minutes = Math.floor(remainingTime / 60);
+            const seconds = remainingTime % 60;
+
+            document.getElementById("timerDisplay").innerText =
+                minutes.toString().padStart(2,'0') + ":" +
+                seconds.toString().padStart(2,'0');
+
+            if(remainingTime > 0){
+                remainingTime--;
+            } else {
+                clearInterval(timerInterval);
+                finishSession();
+            }
+
+        }, 1000);
+    }
+
+    function showQuestion(){
+
+        const q = questions[currentQ];
+
+        document.getElementById("revisionContent").innerHTML = `
+            <div class="quiz-box">
+                <h3>Séance ${currentSession} / ${revisionData.sessions}</h3>
+
+                <div class="timer-display" id="timerDisplay">
+                    ${revisionData.duration}:00
+                </div>
+
+                <h4>Question ${currentQ+1} / ${questions.length}</h4>
+                <p>${q.question}</p>
+
+                <textarea id="answerBox" placeholder="Votre réponse..."></textarea>
+
+                <button class="btn-primary" onclick="checkAnswer()">
+                    Valider
+                </button>
+
+                <div id="feedbackArea"></div>
+            </div>
+        `;
+
+        if(currentQ === 0){
+            startTimer();
+        }
+    }
+
+    window.checkAnswer = function(){
+
+        const answer = document.getElementById("answerBox").value.trim();
+        const q = questions[currentQ];
+
+        if(answer === ""){
+            alert("Veuillez écrire une réponse.");
+            return;
+        }
+
+        const feedbackArea = document.getElementById("feedbackArea");
+
+        // Vérification simple : on compare avec explication
+        if(answer.toLowerCase().includes(q.explanation.toLowerCase().substring(0,20))){
+            sessionScore++;
+            feedbackArea.innerHTML = `
+                <div class="correction-block">
+                    ✅ Bonne réponse ! Excellent travail.
+                </div>
+                <button class="btn-primary" onclick="nextQuestion()">
+                    Question suivante
+                </button>
+            `;
+        }
+        else{
+            feedbackArea.innerHTML = `
+                <div class="error-block">
+                    ❌ Réponse incorrecte.<br><br>
+                    <strong>Correction :</strong><br>
+                    ${q.explanation}
+                </div>
+                <button class="btn-primary" onclick="nextQuestion()">
+                    Continuer
+                </button>
+            `;
+        }
+
+        totalQuestions++;
+    }
+
+    window.nextQuestion = function(){
+        currentQ++;
+
+        if(currentQ < questions.length){
+            showQuestion();
+        } else {
+            clearInterval(timerInterval);
+            finishSession();
+        }
+    }
+
+    function finishSession(){
+
+        const percentage = Math.round((sessionScore / questions.length) * 100);
+        totalScore += sessionScore;
+
+        document.getElementById("revisionContent").innerHTML = `
+            <div class="quiz-box">
+                <h3>Score de la séance</h3>
+                <div class="score-display">${percentage}%</div>
+
+                <button class="btn-primary" onclick="nextSession()">
+                    Continuer
+                </button>
+            </div>
+        `;
+    }
+
+    showQuestion();
+}
+
+
+function nextSession(){
+
+    if(currentSession < revisionData.sessions){
+        currentSession++;
+        showExplanation();
+    } else {
+        finishRevision();
+    }
+}
+
+function finishRevision(){
+
+    let finalPercentage = totalQuestions > 0
+        ? Math.round((totalScore / totalQuestions) * 100)
+        : 100;
+
+    let nextPlan = "";
+    let message = "";
+
+    if(finalPercentage >= 75){
+
+        message = `
+            <div class="correction-block">
+                🎉 Félicitations !<br><br>
+                Vous avez consolidé vos connaissances avec succès.<br>
+                Aucune nouvelle séance n'est nécessaire.
+            </div>
+        `;
+
+    } else {
+
+        // Planification intelligente
+        let extraSessions;
+        let newDuration;
+
+        if(finalPercentage < 50){
+            extraSessions = 2;
+            newDuration = 30;
+        } else {
+            extraSessions = 1;
+            newDuration = 20;
+        }
+
+        // Mise à jour du planning
+        localStorage.setItem("revisionData", JSON.stringify({
+            sessions: extraSessions,
+            duration: newDuration,
+            wrongAnswers: revisionData.wrongAnswers
+        }));
+
+        nextPlan = `
+            <div class="error-block">
+                📚 Consolidation recommandée.<br><br>
+                ${extraSessions} nouvelle(s) séance(s) de ${newDuration} minutes planifiée(s).
+            </div>
+
+            <button class="btn-primary" onclick="startRevision()">
+                Commencer la nouvelle séance
+            </button>
+        `;
+    }
+
+    document.getElementById("revisionContent").innerHTML = `
+        <div class="quiz-box">
+            <h3>Score global final</h3>
+            <div class="score-display">${finalPercentage}%</div>
+
+            ${message}
+            ${nextPlan}
+
+            <br>
+            <button class="btn-secondary" onclick="goBack()">
+                Retour au dashboard
+            </button>
+        </div>
+    `;
+}
+
+function goBack(){
+    window.location.href = "dashboard.html";
+}
+
+startRevision();
+
+</script>
+
+</body>
+</html>
