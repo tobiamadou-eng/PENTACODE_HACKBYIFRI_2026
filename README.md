@@ -1,131 +1,169 @@
-# PENTACODE_HACKBYIFRI_2026
-Pour le hackathon du mois de mars , notre groupe de 5 membres (PENTACODE) a pensé à  un projet d'assistance dans les pour les étudiants 
-Document Conceptuel
-
-SMARTLEARN – Assistant académique intelligent basé sur les cours de l’étudiant 
-
-1️⃣ Problème identifié
-
-De nombreux étudiants rencontrent des difficultés académiques non pas par manque d’intelligence, mais par :
-
-Absence de méthode d’apprentissage structurée
-
-Révisions tardives et mal organisées
-
-Difficulté à identifier les points clés d’un cours
-
-Utilisation de ressources Internet non alignées avec leurs supports pédagogiques
-
-Manque d’accompagnement personnalisé
-
-
-Cela entraîne stress, mauvaises performances et parfois décrochage.
-
-2️⃣ Solution proposée
-
-SMARTLEARN est une application intelligente qui transforme les cours personnels de l’étudiant en un outil d’apprentissage interactif.
-
-L’étudiant importe son cours (PDF), et le système :
-
-Analyse le contenu
-
-Génère des résumés structurés
-
-Identifie les points clés
-
-Crée des mini‑quizz basés uniquement sur le cours
-
-Propose un mode préparation examen
-
-!L’IA ne répond pas avec des données générales d’Internet, mais exclusivement avec le contenu fourni par l’étudiant.!
-
-3️⃣ Public cible
-
-Étudiants en Licence (toutes filières)
-
-Étudiants ayant des difficultés d’organisation
-
-Étudiants souhaitant améliorer leurs performances académiques
-
-
-Prototype initial : Communauté universitaire locale.
-
-4️⃣ Fonctionnalités principales
-
-✅ 1. Importation de cours (PDF)
-
-Analyse automatique du contenu. (Une IA spécialise dans l'analyse de documents)
-
-✅ 2. Résumé intelligent
-
-Extraction :
-
-Définitions importantes
-
-Concepts clés
-
-Points essentiels
-
-✅ 3. Mini‑quizz automatique
-
-Questions générées à partir du cours de l'étudiant 
-
-Correction instantanée
-
-Explication adaptée
-
-
-✅ 4. Mode “Préparation Examen”
-
-Plan de révision personnalisé
-
-Identification des points faibles
-
-Révision stratégique
-
-
-5️⃣ Innovation
-
-IA basée exclusivement sur le contenu personnel de l’étudiant et non sur les sources internet pour éviter le dispersèrent 
-
-Méthode pédagogique intégrée (Comprendre → Pratiquer → Suivre → Réviser)
-
-Approche orientée réussite académique
-
-Solution adaptable à toutes les filières
-
-
-6️⃣ Faisabilité technique
-
-Technologies utilisées :
-
-Backend : FastAPI, SQLAlchemy
-
-Base de données : PostgreSQL
-
-Frontend : Flutter
-
-Intelligence artificielle : API OpenAI
-
-
-Prototype fonctionnel réalisable en moins de deux semaines avec :
-
-Import d’un cours exemple
-
-Génération de résumé
-
-Génération de quizz
-
-Interface simple
-
-7️⃣ Impact attendu
-
-Amélioration de la compréhension des cours
-
-Meilleure organisation académique
-
-Réduction du taux d’échec
-
-Réduction du stress lié aux examens
-
-Apprentissage aisé 
+📄 CAHIER DES CHARGES
+HACKBYIFRI 2026
+Thème : Intégration efficace du numérique dans l'apprentissage
+1️⃣ Nom de l'équipe
+PENTACODE IFRI
+2️⃣ Présentation des membres
+
+Membre 1 (Chef de groupe)
+• Nom :YEVI
+• Prénom(s) :Mawuli Peniel Samuel
+• École : IFRI
+• Filière : SYSTÈME EMBARQUÉ
+• Année :1
+• Téléphone : 0144462903
+• Email : samuelyevidev777@gmail.com
+
+Membre 2
+• Nom : OLAFA
+• Prénom(s) : Mauricia Nériah Mondjissiola
+• École : IFRI
+• Filière : GÉNIE LOGICIEL
+• Année : 1
+• Téléphone : 0152213535
+• Email : neriah249@gmail.com
+
+Membre 3
+• Nom : AMADOU
+• Prénom(s) : Tobie Vincent Geduld
+• École : IFRI
+• Filiière : SÉCURITÉ INFORMATIQUE
+• Année : 1
+• Téléphone : 0197221065
+• Email : geduldamadou@gmail.com
+
+• Membre 4
+• Nom : ATHINDEHOU
+• Prénom(s) : Oluwa-Tobi Amos Fréjus • École : IFRI
+• Filière : SÉCURITÉ INFORMATIQUE
+• Année : 1
+• Téléphone : 0160483747
+• Email : athindehoufrejus@gmail.com
+
+Membre 5
+• Nom :SALIFOU
+• Prénom(s) :tarouwere Abdel Azim
+• École : IFRI
+• Filière : GÉNIE LOGICIEL
+• Année : 1
+• Téléphone : 0190905914
+• Email : tarouwereabdelazim@gmail.com
+
+3️⃣ Problème(s) identifié(s)
+Problème principal
+Les étudiants rencontrent des difficultés majeures dans :
+L'organisation efficace de leurs révisions
+La compréhension claire de certains chapitres complexes
+Le maintien de la concentration sur de longues périodes
+L'identification des points réellement importants d'un cours
+Contexte À l'université :
+Les cours sont parfois denses et techniques
+Certains enseignants dictent sans fournir de support numérique
+Les étudiants relisent passivement sans méthode structurée
+Les révisions sont souvent tardives et mal planifiées
+Ces difficultés entraînent :
+Stress académique
+Mauvaises performances Risque de décrochage
+Catégories touchées
+Étudiants en Licence
+Étudiants en Master
+Doctorants
+Étudiants en période d'examen
+4️⃣ Description de la solution
+Nom de la solution SMARTLEARN Description
+SMARTLEARN est une application web intelligente qui transforme un chapitre de cours en un assistant d'apprentissage interactif.
+Elle permet de :
+Obtenir une explication claire et structurée Générer automatiquement des mini-quiz
+Mesurer son niveau de maîtrise
+Obtenir un planning de révision personnalisé
+Améliorer la concentration via un mode Focus
+Comment la solution répond au problème SMARTLEARN transformer :
+Lecture passive → Apprentissage actif
+Désorganisation → Planification structurée Stress → Suivi maîtrisé Elle aide l'étudiant à :
+Comprendre
+Tester
+Mesurer
+Planifier
+Réviser efficacement
+Valeur ajoutée
+Adaptation au niveau (Licence / Master / Doctorat)
+Deux modes :
+• Basé sur le contenu personnel
+• Mode enrichissement pédagogique
+Génération automatique de planification selon performance
+Intégration d'un mode Focus chronométré
+5️⃣ Exigences fonctionnelles
+SMARTLEARN devra permettre :
+• Sélection du niveau académique
+• Sélection de la matière
+• Saisie(Copier-coller)ou photographies (analyse OCR) d'un chapitre
+• Génération d'explication claire et structurée
+• Extraction des concepts clés
+• Génération automatique de mini-quiz
+• Correction automatique avec explication
+• Calcul du score et indice de maîtrise
+• Génération automatique d'un planning de révision
+• Mode Focus (session 25 minutes avec minuterie)
+• Suivi simple de progression
+6️⃣ Technologies utilisées
+Langages
+• PHP (backend & frontend) – simplicité et rapidité de développement
+• HTML / CSS / JavaScript – interface web légère et efficace
+Framework
+• FastAPI – performant, simple à utiliser pour API backend
+Base de données
+• SQLite – léger, facile à déployer, adapté à un prototype
+IA
+• API OpenAI – génération pédagogique intelligente, quiz et explications Justification :
+Ces technologies permettent un prototype fonctionnel rapide, stable et démontrable.
+7️⃣ Modèle économique (optionnel)
+SMARTLEARN pourrait évoluer vers :
+• Version gratuite avec fonctionnalités de base
+• Version premium avec :
+Analyse avancée(OCR) Historique détaillé Statistiques de progression Public payant potentiel :
+Étudiants en université
+Écoles privées Centres de formation Stratégie :
+Partenariats universitaires
+Abonnement étudiant mensuel faible coût
+8️⃣ Perspectives et évolutions futures
+Fonctionnalités futures possibles :
+• Upload direct de PDF
+• Tableau de bord graphique avancé
+• Mode collaboratif (groupes d'étude)
+• Analyse multi-chapitres
+• Recommandation intelligente basée sur historique • Application mobile
+9️⃣ Architecture et pratique technique
+Architecture
+Frontend (HTML/CSS/JS)
+↓
+Backend (FastAPI – PHP)
+↓
+Base SQLite
+↓
+Appels API OpenAI
+Flux de fonctionnement
+L'utilisateur saisit un chapitre
+Le backend envoie le contenu à l'API OpenAI
+L'IA génère explication + quiz
+Le système calcule le score
+L'algorithme génère le planning
+Les résultats sont affichés
+Contraintes Techniques
+• Dépendance à l'API OpenAI
+• Gestion des limites de requêtes
+• Connexion internet requise
+Risques techniques
+• Latence API
+• Gestion erreurs réseau
+• Gestion taille du texte envoyé Ces risques seront limités par :
+Tests intensifs
+Gestion d'erreurs backend
+Limitation taille des entrées
+
+🎯 Conclusion
+SMARTLEARN est une solution réaliste, innovante et adaptée au contexte universitaire.
+Elle intègre efficacement le numérique dans l'apprentissage en combinant :
+Explication intelligente
+Évaluation active
+Suivi de performance
+Organisation stratégique
