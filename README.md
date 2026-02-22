@@ -95,8 +95,8 @@ Deux modes :
 • Mode enrichissement pédagogique
 Génération automatique de planification selon performance
 Intégration d'un mode Focus chronométré
-5️⃣ Exigences fonctionnelles
 
+5️⃣ Exigences fonctionnelles
 SMARTLEARN devra permettre :
 • Sélection du niveau académique
 • Sélection de la matière
@@ -109,8 +109,8 @@ SMARTLEARN devra permettre :
 • Génération automatique d'un planning de révision
 • Mode Focus (session 25 minutes avec minuterie)
 • Suivi simple de progression
-6️⃣ Technologies utilisées
 
+6️⃣ Technologies utilisées
 Langages
 • PHP (backend & frontend) – simplicité et rapidité de développement
 • HTML / CSS / JavaScript – interface web légère et efficace
